@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "version": "20.0.0-SNAPSHOT.0",
+  "version": "20.0.0",
   "description": "",
   "main": "cjs/public-api.js",
   "types": "cjs/public-api.d.ts",
