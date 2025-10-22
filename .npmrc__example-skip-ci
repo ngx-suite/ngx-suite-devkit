@@ -10,5 +10,4 @@ always-auth = true
 ; we don't want to put certificates in .npmrc
 strict-ssl = false
 
-tag-version-prefix="NGX-SUITE-DEVKIT-"
 message="v%s \n\n [SKIP CI]"
