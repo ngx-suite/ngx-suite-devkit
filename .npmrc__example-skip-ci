@@ -1,0 +1,14 @@
+; base64 encoded authentication token
+//https://registry.npmjs.org/:_auth=__HASH__
+
+; required by Nexus
+email = oleksandr.korchak@gmail.com
+
+; force auth to be used for GET requests
+always-auth = true
+
+; we don't want to put certificates in .npmrc
+strict-ssl = false
+
+tag-version-prefix="NGX-SUITE-DEVKIT-"
+message="v%s \n\n [SKIP CI]"

@@ -1,0 +1,76 @@
+{
+  "name": "@ngx-suite/devkit",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "version": "20.0.0-SNAPSHOT.0",
+  "description": "",
+  "main": "cjs/public-api.js",
+  "types": "cjs/public-api.d.ts",
+  "scripts": {
+    "build": "npm run build-src && npm run link-dist && npm run build-schematics",
+    "build-src": "npm run cleanup && tsc -p tsconfig.json && tsc -p tsconfig.esm.json && copyfiles package.json ./dist/ngx-suite-devkit/",
+    "build-src:watch": "tsc -p tsconfig.json -w",
+    "build-schematics": "tsc -p schematics/tsconfig.json && copyfiles schematics/*/schema.json schematics/collection.json ./dist/ngx-suite-devkit/ && npm run schematics:copy-files",
+    "build-schematics:watch": "tsc -p schematics/tsconfig.json -w",
+    "schematics:copy-files": "shx cp -r schematics/new-entry-point/files ./dist/ngx-suite-devkit/schematics/new-entry-point/",
+    "cleanup": "shx rm -rf dist/ngx-suite-devkit/*",
+    "prepare-for-publish": "copyfiles .npmrc ./dist/ngx-suite-devkit/",
+    "link-dist": "cd dist/ngx-suite-devkit && npm link && cd ../../ && npm link @ngx-suite/devkit",
+    "lint:ts": "eslint \"src/**/*.ts\" \"schematics/**/index.ts\" --quiet",
+    "lint-staged": "lint-staged",
+    "init-devkit": "npm run build-src && npm run link-dist",
+    "publish-lib": "npm run prepare-for-publish && cd dist/ngx-suite-devkit && npm publish --registry=https://registry.npmjs.org/ --access=public",
+    "next-preminor-version": "npm version preminor --preid=SNAPSHOT",
+    "next-snapshot-version": "npm version prerelease --preid=SNAPSHOT",
+    "next-major-version": "npm version major",
+    "next-minor-version": "npm version minor",
+    "next-patch-version": "npm version patch",
+    "version": "echo $npm_package_version",
+    "pre-pull-request": "npm run lint:ts",
+    "schematics::new-entry-point": "ng g @ngx-suite/devkit:new-entry-point --base-path=ngx-suite-some-shared-lib/opa --ts-path-fragment-aliases=ngx-suite-some-shared-lib,@ngx-suite/common",
+    "schematics::clean-ang-env": "ng g @ngx-suite/devkit:clean-up-ang-env --project-name=ngx-suite-common-app"
+  },
+  "author": {
+    "name": "Oleksandr Korchak",
+    "email": "oleksandr.korchak@gmail.com"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "20.3.6",
+    "@angular-devkit/schematics": "20.3.6",
+    "@angular/cli": "20.3.6",
+    "@angular/compiler-cli": "20.3.6",
+    "@eslint/js": "9.16.0",
+    "@stylistic/eslint-plugin": "2.12.1",
+    "@stylistic/stylelint-plugin": "3.1.1",
+    "@types/eslint__js": "8.42.3",
+    "@types/lodash-es": "4.17.12",
+    "@types/node": "18.19.29",
+    "@types/ol": "6.5.3",
+    "copyfiles": "2.4.1",
+    "angular-eslint": "20.3.0",
+    "eslint": "9.16.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.11",
+    "ng-packagr": "20.3.0",
+    "postcss": "8.4.49",
+    "shx": "0.4.0",
+    "stylelint": "16.11.0",
+    "stylelint-config-alphabetical-order": "1.0.0",
+    "stylelint-config-sass-guidelines": "12.1.0",
+    "stylelint-scss": "6.10.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.1"
+  },
+  "schematics": "./schematics/collection.json",
+  "new-entry-point": {
+    "save": "devDependencies"
+  },
+  "sync-ang-env": {
+    "save": "devDependencies"
+  }
+}

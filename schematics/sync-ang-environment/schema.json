@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "SyncAngEnvironment",
+    "title": "SyncAngEnvironment",
+    "type": "object",
+    "properties": {
+        "sourceDirPath": {
+            "type": "string",
+            "minLength": 1,
+            "default": "projects"
+        },
+        "parentLibAlias": {
+            "type": "string",
+            "minLength": 1
+        },
+        "projectName": {
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

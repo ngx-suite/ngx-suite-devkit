@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "../dist/ngx-suite-devkit/schematics",
+        "declaration": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "rootDir": ".",
+        "skipLibCheck": true,
+        "types": [
+            "node"
+        ],
+        "target": "es6",
+        "lib": [
+            "dom",
+            "es2018"
+        ]
+    },
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        "*/files/**/*"
+    ]
+}

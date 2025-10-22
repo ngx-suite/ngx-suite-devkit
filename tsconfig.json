@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "outDir": "./dist/ngx-suite-devkit/cjs",
+        "declaration": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "rootDir": "./src",
+        "skipLibCheck": true,
+        "types": [
+            "node"
+        ],
+        "target": "es6",
+        "lib": [
+            "dom",
+            "es2018"
+        ],
+        "paths": {
+            "@ngx-suite/devkit": [
+                "dist/ngx-suite-devkit/public-api"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

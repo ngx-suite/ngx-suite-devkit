@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "NewEntryPoint",
+    "title": "Library Schema",
+    "type": "object",
+    "properties": {
+        "basePath": {
+            "type": "string",
+            "minLength": 1
+        },
+        "projectName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "tsPathFragmentAliases": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Comma separated base path fragment aliases."
+        }
+    },
+    "required": ["basePath"]
+}

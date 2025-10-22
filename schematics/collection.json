@@ -1,0 +1,20 @@
+{
+    "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "new-entry-point": {
+            "description": "Create new Entry Point",
+            "factory": "./new-entry-point/index#newEntryPoint",
+            "schema": "./new-entry-point/schema.json"
+        },
+        "sync-ang-env": {
+            "description": "Sync Angular Environment",
+            "factory": "./sync-ang-environment/index#syncAngularEnvironment",
+            "schema": "./sync-ang-environment/schema.json"
+        },
+        "clean-up-ang-env": {
+            "description": "Clean Angular Up Environment",
+            "factory": "./clean-up-ang-environment/index#cleanUpAngularEnvironment",
+            "schema": "./clean-up-ang-environment/schema.json"
+        }
+    }
+}
